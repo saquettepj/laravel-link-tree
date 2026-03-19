@@ -10,6 +10,7 @@ class Link extends Model
     protected $fillable = [
         'name',
         'link',
+        'user_id'
     ];
 
     /** @use HasFactory<\Database\Factories\LinkFactory> */

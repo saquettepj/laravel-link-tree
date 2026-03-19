@@ -26,4 +26,7 @@
         <br>
         <button>Logar</button>
     </form>
+    <a href="{{ route('register') }}">
+        Registrar
+    </a>
 </div>

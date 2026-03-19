@@ -25,6 +25,9 @@ Route::middleware('auth')->group(function() {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::get('/links/create', [LinkController::class, 'create'])->name('links.create');
+    Route::get('/links/edit/{link}', [LinkController::class, 'edit'])->name('links.edit');
+    Route::put('/links/edit/{link}', [LinkController::class, 'update']);
     Route::post('/links/create', [LinkController::class, 'store']);
+    Route::delete('links/{link}', [LinkController::class, 'destroy'])->name('links.destroy');
 });
 

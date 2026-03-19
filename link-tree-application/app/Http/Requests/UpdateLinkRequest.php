@@ -12,9 +12,7 @@ class UpdateLinkRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        $inspect = Gate::inspect("belongsTo", $this->link);
-
-        return $inspect->allowed();
+        return $this->user()->can('update', $this->route('link'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class UpdateLinkRequest extends FormRequest
 {
@@ -11,7 +12,9 @@ class UpdateLinkRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        $inspect = Gate::inspect("belongsTo", $this->link);
+
+        return $inspect->allowed();
     }
 
     /**
